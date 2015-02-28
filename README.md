@@ -3,6 +3,10 @@ MyDotFiles
 
 This project is basically to track my personal configurations across my multiples enviroments.
 
+Requirements
+------------
+AG - The Silver Searcher: https://github.com/ggreer/the_silver_searcher 
+
 Installing
 ----------
 
