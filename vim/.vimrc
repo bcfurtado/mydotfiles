@@ -23,6 +23,8 @@ Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'rking/ag.vim'
+
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
