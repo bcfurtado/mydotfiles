@@ -19,6 +19,10 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'bling/vim-airline'
 
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'scrooloose/nerdtree'
+
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
