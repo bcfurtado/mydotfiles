@@ -1,7 +1,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 syntax on
-set laststatus=2	      " start automatically airline plugin
+set laststatus=2              " start automatically airline plugin
+set nu                        " show lines in the buffer
+set hlsearch                  " add highlight to search results
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
