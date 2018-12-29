@@ -6,6 +6,7 @@ This project is basically to track my personal configurations across my multiple
 Requirements
 ------------
 - [AG - The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
+- [My emacs settings](https://github.com/bcfurtado/.emacs.d)
 
 Installing
 ----------
