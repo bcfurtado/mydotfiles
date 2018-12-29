@@ -139,4 +139,8 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "'", function()
   win:setFrame(f)
 end)
 
+-- Override inconvenient hide window default mac os command
+hs.hotkey.bind({"cmd"}, "H", function()
+end)
+
 
