@@ -22,8 +22,8 @@
     show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
 
     ggb = "!f() { \
-        git grep --no-pager -n \"$1\" | while IFS=: read -r file line _; do \
-            git blame --no-pager -L ${line},${line} -- $file; \
+        git --no-pager grep -n \"$1\" | while IFS=: read -r file line _; do \
+            git --no-pager blame -L ${line},${line} -- $file; \
         done; \
     }; f"
 
