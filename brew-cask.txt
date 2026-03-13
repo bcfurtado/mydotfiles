@@ -1,8 +1,0 @@
-brave-browser
-domzilla-caffeine
-emacs-app
-iterm2
-rectangle
-spotify
-visual-studio-code
-vlc
