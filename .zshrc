@@ -19,3 +19,7 @@ if [ -d "$ZSH" ]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
+# Atuin
+if (( $+commands[atuin] )); then
+  eval "$(atuin init zsh)"
+fi

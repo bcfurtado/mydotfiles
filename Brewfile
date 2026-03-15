@@ -1,5 +1,6 @@
 tap "hashicorp/tap"
 brew "argocd"
+brew "atuin"
 brew "awscli"
 brew "bat"
 brew "curl"
