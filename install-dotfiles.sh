@@ -11,7 +11,7 @@ link() {
     mv "$dst" "$BACKUP_DIR/"
     echo "Backed up $dst to $BACKUP_DIR/"
   fi
-  ln -s "$src" "$dst"
+  ln -s -f "$src" "$dst"
 }
 
 create_if_missing() {
