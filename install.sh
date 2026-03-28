@@ -19,4 +19,8 @@ info "Creating symlinks and extra files..."
 info "Applying macOS defaults..."
 ./install-macos-preferences.sh
 
+# Configure iTerm2
+info "Configuring iTerm2..."
+./apps/iTerm2/install-iterm2-theme.sh
+
 info "Done"
