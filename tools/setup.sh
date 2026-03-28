@@ -22,22 +22,25 @@ REPO_DIR=~/projects/github.com/bcfurtado/mydotfiles
 
 mkdir -p ~/projects/github.com/bcfurtado
 
-# Clone the repository using SSH if keys are configured on GitHub, otherwise HTTPS.
+# Clone a GitHub repository using SSH if keys are configured, otherwise HTTPS.
+# Usage: clone_repository "owner/repo" "target_dir"
 # ssh -T returns exit code 1 on successful auth and 255 on failure.
 clone_repository() {
+  local repo=$1
+  local target=$2
   USE_SSH=$(ssh -T git@github.com 2>/dev/null; echo $?)
   if [ "$USE_SSH" -eq 1 ]; then
-    info "Using SSH to clone repository"
-    git clone --quiet "git@github.com:bcfurtado/mydotfiles.git" "$REPO_DIR"
+    info "Using SSH to clone $repo"
+    git clone --quiet "git@github.com:${repo}.git" "$target"
   else
-    warn "Using HTTPS to clone repository"
-    git clone --quiet "https://github.com/bcfurtado/mydotfiles.git" "$REPO_DIR"
+    warn "Using HTTPS to clone $repo"
+    git clone --quiet "https://github.com/${repo}.git" "$target"
   fi
 }
 
 if [ ! -d "$REPO_DIR" ]; then
   info "Cloning repository..."
-  clone_repository
+  clone_repository "bcfurtado/mydotfiles" "$REPO_DIR"
 else
   warn "Repository already exists at $REPO_DIR. Skipping..."
 fi
