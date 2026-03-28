@@ -17,6 +17,6 @@ info "Creating symlinks and extra files..."
 
 # Apply macOS defaults
 info "Applying macOS defaults..."
-./install-macos-shortcuts.sh
+./install-macos-preferences.sh
 
 info "Done"
