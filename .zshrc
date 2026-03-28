@@ -34,3 +34,9 @@ fi
 if (( $+commands[atuin] )); then
   eval "$(atuin init zsh)"
 fi
+
+# Local overrides
+if [ -f ~/.zshrc-extra ]; then
+  source ~/.zshrc-extra
+fi
+
