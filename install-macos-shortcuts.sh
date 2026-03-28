@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eu
 
 GREEN='\033[0;32m'
 NC='\033[0m'
