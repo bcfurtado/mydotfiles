@@ -18,9 +18,7 @@ NC='\033[0m'
 info() { echo -e "${GREEN}$1${NC}"; }
 warn() { echo -e "${YELLOW}$1${NC}"; }
 
-REPO_DIR=~/projects/github.com/bcfurtado/mydotfiles
-
-mkdir -p ~/projects/github.com/bcfurtado
+WORKSPACE=~/projects/github.com
 
 # Clone a GitHub repository using SSH if keys are configured, otherwise HTTPS.
 # Usage: clone_repository "owner/repo" "target_dir"
@@ -38,25 +36,48 @@ clone_repository() {
   fi
 }
 
-if [ ! -d "$REPO_DIR" ]; then
-  info "Cloning repository..."
-  clone_repository "bcfurtado/mydotfiles" "$REPO_DIR"
-else
-  warn "Repository already exists at $REPO_DIR. Skipping..."
+# Set up a GitHub repository. Clones it if it doesn't exist, skips otherwise.
+# Usage: setup_repository "owner/repo"
+setup_repository() {
+  local repo=$1
+  local target="${WORKSPACE}/${repo}"
+
+  if [ -d "$target" ]; then
+    warn "Repository already exists at $target. Skipping..."
+    return
+  fi
+
+  mkdir -p "$(dirname "$target")"
+  info "Cloning ${repo}..."
+  clone_repository "$repo" "$target"
+}
+
+# Set up mydotfiles repo
+read -rp "Do you want to setup 'bcfurtado/mydotfiles'? (y/n) " answer
+if [ "$answer" = "y" ]; then
+  setup_repository "bcfurtado/mydotfiles"
+  pushd "${WORKSPACE}/bcfurtado/mydotfiles"
+  ./install.sh
+  popd
 fi
 
-cd "$REPO_DIR"
+# Set up emacs repo
+read -rp "Do you want to setup 'bcfurtado/.emacs.d'? (y/n) " answer
+if [ "$answer" = "y" ]; then
+  setup_repository "bcfurtado/.emacs.d"
+  pushd "${WORKSPACE}/bcfurtado/.emacs.d"
+  ./install.sh
+  popd
+fi
 
-# Install brew packages
-info "Installing brew packages..."
-brew bundle install --file=Brewfile
-
-# Create symlinks and extra files
-info "Creating symlinks and extra files..."
-./install.sh
-
-# Apply macOS defaults
-info "Applying macOS defaults..."
-./macos.sh
+# Set up tmux repo
+read -rp "Do you want to setup 'bcfurtado/.tmux'? (y/n) " answer
+if [ "$answer" = "y" ]; then
+  setup_repository "bcfurtado/.tmux"
+  pushd "${WORKSPACE}/bcfurtado/.tmux"
+  ln -s -f ~/projects/github.com/bcfurtado/.tmux/.tmux.conf ~/.tmux.conf
+  ln -s -f ~/projects/github.com/bcfurtado/.tmux/.tmux.conf.bruno.local ~/.tmux.conf.local
+  popd
+fi
 
 info "Setup complete!"
