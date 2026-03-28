@@ -3,13 +3,19 @@
 
 This project tracks my personal configurations across multiple environments.
 
+## Requirements
+
+- [Homebrew](https://brew.sh/)
+
 ## Install
 
 ```sh
-$ mkdir -p ~/projects/github.com/bcfurtado && cd $_
-$ git clone git@github.com:bcfurtado/mydotfiles.git
-$ cd ./mydotfiles
-$ brew bundle install --file=Brewfile
-$ ./install.sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/bcfurtado/mydotfiles/master/tools/setup.sh)"
+```
+
+or via wget:
+
+```sh
+bash -c "$(wget -qO- https://raw.githubusercontent.com/bcfurtado/mydotfiles/master/tools/setup.sh)"
 ```
 
