@@ -12,6 +12,7 @@ alias ll='ls -alF'
 alias tf="terraform"
 
 # Oh My Zsh
+# https://github.com/ohmyzsh/ohmyzsh
 export ZSH="$HOME/.oh-my-zsh"
 if [ -d "$ZSH" ]; then
   ZSH_THEME="robbyrussell"
@@ -19,7 +20,17 @@ if [ -d "$ZSH" ]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
+# Pure
+# https://github.com/sindresorhus/pure
+autoload -U promptinit; promptinit
+if typeset -f prompt_pure_setup > /dev/null; then
+  prompt pure
+else
+  echo "warning: Pure prompt not loaded"
+fi
+
 # Atuin
+# https://github.com/atuinsh
 if (( $+commands[atuin] )); then
   eval "$(atuin init zsh)"
 fi
