@@ -24,9 +24,12 @@ create_if_missing() {
 # Create symbolic links
 link ./.gitconfig ~/.gitconfig
 link ./.gitconfig-personal ~/.gitconfig-personal
-link ./vim/.vimrc ~/.vimrc
+
+link ./.zlogin ~/.zlogin
+link ./.zprofile ~/.zprofile
 link ./.zshrc ~/.zshrc
-link ./.zshrc ~/.zlogin
+
+link ./vim/.vimrc ~/.vimrc
 
 # Create extra files for machine-specific overrides
 create_if_missing ~/.gitconfig-extra
