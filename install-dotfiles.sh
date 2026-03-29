@@ -1,19 +1,12 @@
 #!/usr/bin/env bash
 set -eu
 
-BACKUP_DIR=~/dotfiles-backup/$(date +%Y%m%d%H%M%S)
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+STOW_PACKAGES="git zsh vim k9s"
 
-link() {
-  local src=$(realpath "$1")
-  local dst="$2"
-  if [ -e "$dst" ] || [ -L "$dst" ]; then
-    mkdir -p "$BACKUP_DIR"
-    mv "$dst" "$BACKUP_DIR/"
-    echo "Backed up $dst to $BACKUP_DIR/"
-  fi
-  ln -s -f "$src" "$dst"
-}
+stow -v -t "$HOME" --dir="$DOTFILES_DIR" --restow $STOW_PACKAGES
 
+# Create extra files for machine-specific overrides
 create_if_missing() {
   local file="$1"
   if [ ! -f "$file" ]; then
@@ -22,16 +15,5 @@ create_if_missing() {
   fi
 }
 
-# Create symbolic links
-link ./.gitconfig ~/.gitconfig
-link ./.gitconfig-personal ~/.gitconfig-personal
-
-link ./.zlogin ~/.zlogin
-link ./.zprofile ~/.zprofile
-link ./.zshrc ~/.zshrc
-
-link ./vim/.vimrc ~/.vimrc
-
-# Create extra files for machine-specific overrides
 create_if_missing ~/.gitconfig-extra
 create_if_missing ~/.zshrc-extra
