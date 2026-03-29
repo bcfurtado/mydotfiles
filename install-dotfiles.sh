@@ -2,7 +2,13 @@
 set -eu
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
-STOW_PACKAGES="git zsh vim k9s atuin"
+STOW_PACKAGES=(
+  atuin
+  git
+  k9s
+  vim
+  zsh
+)
 BACKUP_DIR=~/dotfiles-backup/$(date +%Y%m%d%H%M%S)
 
 # Backup existing files that would be overwritten by stow
@@ -17,14 +23,14 @@ backup_if_exists() {
   fi
 }
 
-for package in $STOW_PACKAGES; do
+for package in ${STOW_PACKAGES[@]}; do
   while IFS= read -r -d '' file; do
     target="$HOME/${file#"$package"/}"
     backup_if_exists "$target"
   done < <(cd "$DOTFILES_DIR" && find "$package" -type f -print0)
 done
 
-stow -v -t "$HOME" --dir="$DOTFILES_DIR" --restow $STOW_PACKAGES
+stow -v -t "$HOME" --dir="$DOTFILES_DIR" --restow ${STOW_PACKAGES[@]}
 
 # Create extra files for machine-specific overrides
 create_if_missing() {
