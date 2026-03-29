@@ -4,6 +4,7 @@ set -eu
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 STOW_PACKAGES=(
   atuin
+  direnv
   git
   k9s
   vim
