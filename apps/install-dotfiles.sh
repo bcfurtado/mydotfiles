@@ -13,8 +13,18 @@ STOW_PACKAGES=(
 BACKUP_DIR=~/dotfiles-backup/$(date +%Y%m%d%H%M%S)
 
 # Backup existing files that would be overwritten by stow
+STOW_DIR="$(pwd)"
+
 backup_if_exists() {
   local file="$1"
+  local real_path
+  real_path="$(realpath "$file" 2>/dev/null || true)"
+
+  # Skip files that resolve into the stow directory (already managed by stow)
+  if [[ -n "$real_path" && "$real_path" == "$STOW_DIR"* ]]; then
+    return
+  fi
+
   if [ -e "$file" ] && [ ! -L "$file" ]; then
     mkdir -p "$BACKUP_DIR"
     mv "$file" "$BACKUP_DIR/"
