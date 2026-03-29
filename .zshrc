@@ -29,6 +29,12 @@ else
   echo "warning: Pure prompt not loaded"
 fi
 
+# Zoxide
+# https://github.com/ajeetdsouza/zoxide
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh --cmd cd)"
+fi
+
 # Atuin
 # https://github.com/atuinsh
 if (( $+commands[atuin] )); then
