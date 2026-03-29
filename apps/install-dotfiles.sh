@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$(dirname "$0")"
 STOW_PACKAGES=(
   atuin
   direnv
@@ -28,10 +28,10 @@ for package in ${STOW_PACKAGES[@]}; do
   while IFS= read -r -d '' file; do
     target="$HOME/${file#"$package"/}"
     backup_if_exists "$target"
-  done < <(cd "$DOTFILES_DIR/apps" && find "$package" -type f -print0)
+  done < <(find "$package" -type f -print0)
 done
 
-stow -v -t "$HOME" --dir="$DOTFILES_DIR/apps" --restow ${STOW_PACKAGES[@]}
+stow -v -t "$HOME" --dir=. --restow ${STOW_PACKAGES[@]}
 
 # Create extra files for machine-specific overrides
 create_if_missing() {
