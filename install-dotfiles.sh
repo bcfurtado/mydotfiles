@@ -3,6 +3,26 @@ set -eu
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 STOW_PACKAGES="git zsh vim k9s"
+BACKUP_DIR=~/dotfiles-backup/$(date +%Y%m%d%H%M%S)
+
+# Backup existing files that would be overwritten by stow
+backup_if_exists() {
+  local file="$1"
+  if [ -e "$file" ] && [ ! -L "$file" ]; then
+    mkdir -p "$BACKUP_DIR"
+    mv "$file" "$BACKUP_DIR/"
+    echo "Backed up $file to $BACKUP_DIR/"
+  elif [ -L "$file" ]; then
+    rm "$file"
+  fi
+}
+
+for package in $STOW_PACKAGES; do
+  while IFS= read -r -d '' file; do
+    target="$HOME/${file#"$package"/}"
+    backup_if_exists "$target"
+  done < <(cd "$DOTFILES_DIR" && find "$package" -type f -print0)
+done
 
 stow -v -t "$HOME" --dir="$DOTFILES_DIR" --restow $STOW_PACKAGES
 
