@@ -1,17 +1,5 @@
-# History
-setopt HIST_IGNORE_SPACE     # don't save commands starting with space
-setopt HIST_IGNORE_DUPS      # ignore consecutive duplicates
-setopt HIST_IGNORE_ALL_DUPS  # remove older duplicates
-setopt SHARE_HISTORY         # share history across terminals
-setopt INC_APPEND_HISTORY    # write history immediately
-
-# Aliases
-alias cat="bat -p --paging=never"  # use bat as a drop-in cat replacement (no paging)
-alias k="kubectl"
-alias ll='ls -alF'
-alias tf="terraform"
-
 # Oh My Zsh
+# Options below are set after oh-my-zsh to override its defaults
 # https://github.com/ohmyzsh/ohmyzsh
 export ZSH="$HOME/.oh-my-zsh"
 if [ -d "$ZSH" ]; then
@@ -28,6 +16,19 @@ if typeset -f prompt_pure_setup > /dev/null; then
 else
   echo "warning: Pure prompt not loaded"
 fi
+
+# History
+setopt HIST_IGNORE_SPACE     # don't save commands starting with space
+setopt HIST_IGNORE_DUPS      # ignore consecutive duplicates
+setopt HIST_IGNORE_ALL_DUPS  # remove older duplicates
+setopt SHARE_HISTORY         # share history across terminals
+setopt INC_APPEND_HISTORY    # write history immediately
+
+# Aliases
+alias cat="bat -p --paging=never"  # use bat as a drop-in cat replacement (no paging)
+alias k="kubectl"
+alias ll="ls -alF"
+alias tf="terraform"
 
 # Zoxide
 # https://github.com/ajeetdsouza/zoxide
@@ -59,4 +60,3 @@ fi
 if [ -f ~/.zshrc-extra ]; then
   source ~/.zshrc-extra
 fi
-
