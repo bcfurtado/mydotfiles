@@ -23,4 +23,8 @@ info "Applying macOS defaults..."
 info "Configuring iTerm2..."
 ./apps/iTerm2/install-iterm2-theme.sh
 
+# Configure Rectangle
+info "Configuring Rectangle..."
+./apps/Rectangle/install-rectangle.sh
+
 info "Done"
