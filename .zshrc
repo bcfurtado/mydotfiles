@@ -35,6 +35,12 @@ if (( $+commands[zoxide] )); then
   eval "$(zoxide init zsh --cmd cd)"
 fi
 
+# fzf
+# https://github.com/junegunn/fzf
+if (( $+commands[fzf] )); then
+  eval "$(fzf --zsh)"
+fi
+
 # Atuin
 # https://github.com/atuinsh
 if (( $+commands[atuin] )); then
