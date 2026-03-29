@@ -2,7 +2,7 @@
 set -eu
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
-STOW_PACKAGES="git zsh vim k9s"
+STOW_PACKAGES="git zsh vim k9s atuin"
 BACKUP_DIR=~/dotfiles-backup/$(date +%Y%m%d%H%M%S)
 
 # Backup existing files that would be overwritten by stow
