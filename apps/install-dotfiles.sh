@@ -38,7 +38,7 @@ for package in ${STOW_PACKAGES[@]}; do
   while IFS= read -r -d '' file; do
     target="$HOME/${file#"$package"/}"
     backup_if_exists "$target"
-  done < <(find "$package" -type f -print0)
+  done < <(find "$package" -type f -not -name '.stow-local-ignore' -print0)
 done
 
 stow -v -t "$HOME" --dir=. --restow ${STOW_PACKAGES[@]}
