@@ -41,7 +41,7 @@ fi
 if (( $+commands[fzf] )); then
   eval "$(fzf --zsh)"
   # Setting fd as the default source for fzf
-  export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --exclude .git --exclude node_modules --exclude target"
+  export FZF_DEFAULT_COMMAND="fd --type f --hidden --strip-cwd-prefix --exclude .git --exclude node_modules --exclude target"
   # To apply the command to CTRL-T as well
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   # Preview file content using bat (https://github.com/sharkdp/bat)
