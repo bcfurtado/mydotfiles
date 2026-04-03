@@ -27,7 +27,7 @@ setopt INC_APPEND_HISTORY    # write history immediately
 # Aliases
 alias cat="bat -p --paging=never"  # use bat as a drop-in cat replacement (no paging)
 alias k="kubectl"
-alias ll="ls -alF"
+alias ll="ls -alFh"
 alias tf="terraform"
 
 # Zoxide
