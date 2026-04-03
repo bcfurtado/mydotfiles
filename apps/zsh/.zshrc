@@ -50,10 +50,17 @@ if (( $+commands[fzf] )); then
     --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 fi
 
+
 # Atuin
 # https://github.com/atuinsh
 if (( $+commands[atuin] )); then
   eval "$(atuin init zsh)"
+fi
+
+# ripgrep
+# https://github.com/BurntSushi/ripgrep
+if (( $+commands[rg] )); then
+  export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 fi
 
 # Local overrides

@@ -1,0 +1,11 @@
+# Search hidden files (e.g. .zshrc, .envrc)
+--hidden
+
+# Case-insensitive when pattern is all lowercase
+--smart-case
+
+# Skip large files
+--max-filesize=1M
+
+# Follow symlinks
+--follow

@@ -7,6 +7,7 @@ STOW_PACKAGES=(
   direnv
   git
   k9s
+  ripgrep
   vim
   zsh
 )
