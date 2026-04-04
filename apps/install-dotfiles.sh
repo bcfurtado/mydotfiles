@@ -4,6 +4,7 @@ set -eu
 cd "$(dirname "$0")"
 STOW_PACKAGES=(
   atuin
+  bat
   direnv
   git
   k9s
