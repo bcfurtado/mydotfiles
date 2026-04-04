@@ -2,9 +2,19 @@
 # Options below are set after oh-my-zsh to override its defaults
 # https://github.com/ohmyzsh/ohmyzsh
 export ZSH="$HOME/.oh-my-zsh"
+
+plugins=(
+  direnv
+  emacs
+  fzf-tab
+  git
+  k9s
+  kubectl
+  python
+)
+
 if [ -d "$ZSH" ]; then
   ZSH_THEME="robbyrussell"
-  plugins=(git emacs python direnv kubectl k9s fzf-tab)
   source $ZSH/oh-my-zsh.sh
 fi
 
