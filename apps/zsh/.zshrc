@@ -36,6 +36,7 @@ alias cat="bat -p --paging=never"  # use bat as a drop-in cat replacement (no pa
 alias k="kubectl"
 alias ll="ls -alFh"
 alias tf="terraform"
+alias openports="lsof -iTCP -sTCP:LISTEN -P -n | ov --column-rainbow --column-width --header 1"
 
 # Zoxide
 # https://github.com/ajeetdsouza/zoxide
