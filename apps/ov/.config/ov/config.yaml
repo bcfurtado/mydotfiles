@@ -6,30 +6,35 @@ General:
   Style:
     Header:
       Bold: true
-      Foreground: "#75c4f9"
+      Foreground: "#75c4f9"   # blue
     Alternate:
-      Background: "#3a3d4b"
+      Background: "#3a3d4b"   # alternate background
     SearchHighlight:
-      Foreground: "#282935"
-      Background: "#f4f8a7"
+      Foreground: "#282935"   # background (for contrast)
+      Background: "#f4f8a7"   # yellow
       Bold: true
     MarkLine:
-      Background: "#3a3d4b"
+      Background: "#3a3d4b"   # alternate background
+    SectionLine:
+      Bold: true
+      Foreground: "#f4f8a7"   # yellow
+    SectionHeaderBorder:
+      Foreground: "#75c4f9"   # blue
     ColumnRainbow:
-      - Foreground: "#f0f1f0"
-      - Foreground: "#88f398"
-      - Foreground: "#75c4f9"
-      - Foreground: "#f4f8a7"
-      - Foreground: "#ed73bd"
-      - Foreground: "#aceafb"
-      - Foreground: "#ec675d"
+      - Foreground: "#f0f1f0" # white
+      - Foreground: "#88f398" # green
+      - Foreground: "#75c4f9" # blue
+      - Foreground: "#f4f8a7" # yellow
+      - Foreground: "#ed73bd" # magenta
+      - Foreground: "#aceafb" # cyan
+      - Foreground: "#ec675d" # red
     MultiColorHighlight:
-      - Foreground: "#88f398"
-      - Foreground: "#75c4f9"
-      - Foreground: "#f4f8a7"
-      - Foreground: "#ed73bd"
-      - Foreground: "#aceafb"
-      - Foreground: "#ec675d"
+      - Foreground: "#88f398" # green
+      - Foreground: "#75c4f9" # blue
+      - Foreground: "#f4f8a7" # yellow
+      - Foreground: "#ed73bd" # magenta
+      - Foreground: "#aceafb" # cyan
+      - Foreground: "#ec675d" # red
 
 Mode:
   psql:
