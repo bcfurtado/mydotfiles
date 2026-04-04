@@ -37,6 +37,7 @@ alias k="kubectl"
 alias ll="ls -alFh"
 alias tf="terraform"
 alias openports="lsof -iTCP -sTCP:LISTEN -P -n | ov --column-rainbow --column-width --header 1"
+alias csv="ov --view-mode csv --wrap=false"
 
 # Zoxide
 # https://github.com/ajeetdsouza/zoxide

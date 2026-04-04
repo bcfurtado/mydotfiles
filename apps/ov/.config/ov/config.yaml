@@ -1,0 +1,55 @@
+General:
+  Quit: true
+  AlternateRows: false
+  SmartCaseSensitive: true
+  Incsearch: true
+  Style:
+    Header:
+      Bold: true
+      Foreground: "#75c4f9"
+    Alternate:
+      Background: "#3a3d4b"
+    SearchHighlight:
+      Foreground: "#282935"
+      Background: "#f4f8a7"
+      Bold: true
+    MarkLine:
+      Background: "#3a3d4b"
+    ColumnRainbow:
+      - Foreground: "#f0f1f0"
+      - Foreground: "#88f398"
+      - Foreground: "#75c4f9"
+      - Foreground: "#f4f8a7"
+      - Foreground: "#ed73bd"
+      - Foreground: "#aceafb"
+      - Foreground: "#ec675d"
+    MultiColorHighlight:
+      - Foreground: "#88f398"
+      - Foreground: "#75c4f9"
+      - Foreground: "#f4f8a7"
+      - Foreground: "#ed73bd"
+      - Foreground: "#aceafb"
+      - Foreground: "#ec675d"
+
+Mode:
+  psql:
+    Header: 2
+    AlternateRows: true
+    ColumnMode: true
+    ColumnDelimiter: "|"
+  mysql:
+    Header: 3
+    AlternateRows: true
+    ColumnMode: true
+    ColumnDelimiter: "|"
+  markdown:
+    SectionDelimiter: "^#"
+    Wrap: "word"
+  csv:
+    Header: 1
+    AlternateRows: false
+    ColumnMode: true
+    LineNumMode: true
+    ColumnDelimiter: ","
+    ColumnRainbow: true
+    Align: true
