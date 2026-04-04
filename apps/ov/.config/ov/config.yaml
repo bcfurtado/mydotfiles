@@ -3,6 +3,7 @@ General:
   AlternateRows: false
   SmartCaseSensitive: true
   Incsearch: true
+  WrapMode: false
   Style:
     Header:
       Bold: true
