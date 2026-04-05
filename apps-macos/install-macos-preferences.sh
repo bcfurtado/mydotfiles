@@ -40,10 +40,12 @@ info "Disabling Screenshot and recording options (Cmd+Shift+5)"
 disable_hotkey 184
 
 info "Setting key repeat rate to fastest"
-defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain KeyRepeat -int 3
 
 info "Setting delay until repeat to shortest"
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 info "Applying settings..."
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+killall Dock
+killall Finder
