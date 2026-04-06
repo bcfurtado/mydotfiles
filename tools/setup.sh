@@ -56,10 +56,12 @@ setup_repository() {
 read -rp "Do you want to setup 'ohmyzsh/ohmyzsh'? (y/n) " answer
 if [ "$answer" = "y" ]; then
   OHMYZSH="${XDG_DATA_HOME:-${HOME}/.local/share}/ohmyzsh"
+  PURE_DIR="${OHMYZSH}/custom/plugins/pure"
   FZF_TAB_DIR="${OHMYZSH}/custom/plugins/fzf-tab"
   [ ! -d $OHMYZSH ] && mkdir -p "$(dirname $OHMYZSH)"
   [ ! -d $OHMYZSH/.git ] && git clone --quiet https://github.com/ohmyzsh/ohmyzsh.git "$OHMYZSH"
-  [ ! -d $FZF_TAB_DIR/.git ] && git clone --quiet https://github.com/Aloxaf/fzf-tab "$FZF_TAB_DIR"
+  [ ! -d $PURE_DIR/.git ] && git clone --quiet https://github.com/sindresorhus/pure.git "$PURE_DIR"
+  [ ! -d $FZF_TAB_DIR/.git ] && git clone --quiet https://github.com/Aloxaf/fzf-tab.git "$FZF_TAB_DIR"
 fi
 
 # Set up mydotfiles repo
