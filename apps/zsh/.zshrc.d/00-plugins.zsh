@@ -1,7 +1,7 @@
 # Oh My Zsh
 # Options below are set after oh-my-zsh to override its defaults
 # https://github.com/ohmyzsh/ohmyzsh
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="${XDG_DATA_HOME:-${HOME}/.local/share}/ohmyzsh"
 
 plugins=(
   direnv
