@@ -13,6 +13,7 @@
 
 [pager]
   diff = "ov -F --section-delimiter '^diff'"
+  show = "ov -F --section-delimiter '^diff'"
 
 [alias]
     co = checkout
