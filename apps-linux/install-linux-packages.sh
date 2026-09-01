@@ -325,6 +325,7 @@ install_terraform
 install_helm
 install_atuin
 install_zoxide
+install_go
 install_k9s
 install_lazydocker
 install_doctl
