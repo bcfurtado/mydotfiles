@@ -9,3 +9,6 @@ alias dps="docker ps"
 if ! command -v docker >/dev/null 2>&1; then
   alias lazydocker='DOCKER_HOST="unix://$(podman machine inspect --format "{{.ConnectionInfo.PodmanSocket.Path}}")" command lazydocker'
 fi
+
+alias git-show-merged-branches='git branch --merged | grep -Ev "(^\*|^\+|master|main|dev)"'
+alias git-clean-local-branches='git branch --merged | grep -Ev "(^\*|^\+|master|main|dev)" | xargs --no-run-if-empty git branch -d'
