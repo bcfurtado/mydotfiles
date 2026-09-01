@@ -187,6 +187,25 @@ install_zoxide() {
 }
 
 # ---------------------------------------------------------------------------
+# Go (official tarball; the apt golang package lags several releases behind)
+# Unpacked into ~/.local/go, which 40-go.zsh puts on PATH.
+# ---------------------------------------------------------------------------
+
+install_go() {
+  local version="1.27.1"
+  if [ -d "$HOME/.local/go" ]; then
+    info "go already installed, skipping..."
+    return
+  fi
+  info "Installing go..."
+  local tmp
+  tmp=$(mktemp -d)
+  curl -fsSL "https://go.dev/dl/go${version}.linux-${ARCH}.tar.gz" | tar -xz -C "$tmp"
+  mv "$tmp/go" "$HOME/.local/go"
+  rm -rf "$tmp"
+}
+
+# ---------------------------------------------------------------------------
 # Pinned GitHub release binaries
 # To upgrade a tool, bump its version variable below.
 # ---------------------------------------------------------------------------
@@ -196,6 +215,15 @@ install_k9s() {
   install_gh_tarball "k9s" \
     "https://github.com/derailed/k9s/releases/download/${version}/k9s_Linux_${ARCH}.tar.gz" \
     "k9s"
+}
+
+install_lazydocker() {
+  local version="0.25.2"
+  local arch_name="x86_64"
+  [ "$ARCH" = "arm64" ] && arch_name="arm64"
+  install_gh_tarball "lazydocker" \
+    "https://github.com/jesseduffield/lazydocker/releases/download/v${version}/lazydocker_${version}_Linux_${arch_name}.tar.gz" \
+    "lazydocker"
 }
 
 install_doctl() {
@@ -298,6 +326,7 @@ install_helm
 install_atuin
 install_zoxide
 install_k9s
+install_lazydocker
 install_doctl
 install_hurl
 install_ov
