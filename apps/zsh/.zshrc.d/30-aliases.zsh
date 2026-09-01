@@ -6,6 +6,8 @@ alias openports="lsof -iTCP -sTCP:LISTEN -P -n | ov --column-rainbow --column-wi
 alias tf="terraform"
 alias dps="docker ps"
 
+alias pwdcopy="pwd | pbcopy"
+
 if ! command -v docker >/dev/null 2>&1; then
   alias lazydocker='DOCKER_HOST="unix://$(podman machine inspect --format "{{.ConnectionInfo.PodmanSocket.Path}}")" command lazydocker'
 fi
