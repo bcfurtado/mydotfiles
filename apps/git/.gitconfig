@@ -6,7 +6,7 @@
     editor = emacs
 
 [push]
-    default = matching
+	default = simple
 
 [init]
     defaultBranch = main
