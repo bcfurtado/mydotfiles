@@ -5,6 +5,7 @@ cd "$(dirname "$0")"
 STOW_PACKAGES=(
   atuin
   bat
+  claude
   direnv
   git
   k9s
@@ -43,6 +44,11 @@ for package in ${STOW_PACKAGES[@]}; do
     backup_if_exists "$target"
   done < <(find "$package" -type f -not -name '.stow-local-ignore' -print0)
 done
+
+# Claude Code writes sessions, history and a credentials fallback into ~/.claude.
+# Pre-create it so stow links the individual file instead of folding the whole
+# directory into a symlink pointing at this repo.
+mkdir -p ~/.claude
 
 stow -v -t "$HOME" --dir=. --restow ${STOW_PACKAGES[@]}
 
